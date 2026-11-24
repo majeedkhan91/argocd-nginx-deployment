@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trading-ui
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trading-ui
+  template:
+    metadata:
+      labels:
+        app: trading-ui
+    spec:
+      containers:
+      - name: trading-ui
+        image: 929523583693.dkr.ecr.us-east-1.amazonaws.com/trading-ui:latest
+        ports:
+        - containerPort: 80
